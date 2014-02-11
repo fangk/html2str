@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="../src/js/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="../src/js/html2str.js"></script>
+</head>
+<body>
+  <style>
+    textarea{
+      width: 600px;
+      height: 600px;
+    }
+  </style>
+  <div class="main-wrap">
+    <textarea name="" class="ori" cols="30" rows="10"></textarea>
+    <textarea name="" class="new" cols="30" rows="10"></textarea>
+    <div>
+      <a href="#" class="exchange">转换</a>
+      <a href="#" class="exchange2">反向转换</a>
+    </div>
+  </div>
+  
+  <script>
+    jQuery(function(){
+      var testType = "+";
+      jQuery(".exchange").click(function(){
+        var ori = jQuery(".ori").val();
+        var newText = html2str(ori,testType);
+        jQuery(".new").val(newText);
+        return false;
+      });
+      jQuery(".exchange2").click(function(){
+        var ori = jQuery(".ori").val();
+        var newText = str2html(ori,testType);
+        jQuery(".new").val(newText);
+        return false;
+      });
+    })
+  </script>
+</body>
+</html>

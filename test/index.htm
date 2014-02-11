@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  
+  <!-- 测试框架jasmine-2.0.0 -->
+  <link rel="shortcut icon" type="image/png" href="../tools/jasmine-2.0.0/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="../tools/jasmine-2.0.0/jasmine.css">
+  <script type="text/javascript" src="../tools/jasmine-2.0.0/jasmine.js"></script>
+  <script type="text/javascript" src="../tools/jasmine-2.0.0/jasmine-html.js"></script>
+  <script type="text/javascript" src="../tools/jasmine-2.0.0/boot.js"></script>
+
+  
+  <script type="text/javascript" src="../src/js/jquery-1.11.0.js"></script>
+  <script type="text/javascript" src="../src/js/html2str.js"></script>
+</head>
+<body>
+  
+
+<script type="text/html" id="testHTML">function html2str(text,type){
+  var str = "<\/script>"
+  // 默认使用逗号
+  type = type||",";
+  if(type==","){
+    var newStr = "[\n'"+text
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/(\/script>\n)/g,"\\$1")
+    .replace(/\n([ ]*)/g,"',\n$1'")
+    +"'].join('')";
+    return newStr;
+  }else if(type=="+"){
+    var newStr = "'"+text
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'")
+    .replace(/(\/script>\n)/g,"\\$1")
+    .replace(/\n([ ]*)/g,"'+\n$1'")
+    +"'";
+    return newStr;
+  }
+}</script>
+
+<script type="text/html" id="testOutHTML">[
+'function html2str(text,type){',
+  'var str = "<\\/script>"',
+  '// 默认使用逗号',
+  'type = type||",";',
+  'if(type==","){',
+    'var newStr = "[\\n\'"+text',
+    '.replace(/\\\\/g,"\\\\\\\\")',
+    '.replace(/\'/g,"\\\\\'")',
+    '.replace(/(\\/script>\\n)/g,"\\\\$1")',
+    '.replace(/\\n([ ]*)/g,"\',\\n$1\'")',
+    '+"\'].join(\'\')";',
+    'return newStr;',
+  '}else if(type=="+"){',
+    'var newStr = "\'"+text',
+    '.replace(/\\\\/g,"\\\\\\\\")',
+    '.replace(/\'/g,"\\\\\'")',
+    '.replace(/(\\/script>\\n)/g,"\\\\$1")',
+    '.replace(/\\n([ ]*)/g,"\'+\\n$1\'")',
+    '+"\'";',
+    'return newStr;',
+  '}',
+'}'].join('')</script>
+
+<script type="text/html" id="testOutHTML2">'function html2str(text,type){'+
+  'var str = "<\\/script>"'+
+  '// 默认使用逗号'+
+  'type = type||",";'+
+  'if(type==","){'+
+    'var newStr = "[\\n\'"+text'+
+    '.replace(/\\\\/g,"\\\\\\\\")'+
+    '.replace(/\'/g,"\\\\\'")'+
+    '.replace(/(\\/script>\\n)/g,"\\\\$1")'+
+    '.replace(/\\n([ ]*)/g,"\',\\n$1\'")'+
+    '+"\'].join(\'\')";'+
+    'return newStr;'+
+  '}else if(type=="+"){'+
+    'var newStr = "\'"+text'+
+    '.replace(/\\\\/g,"\\\\\\\\")'+
+    '.replace(/\'/g,"\\\\\'")'+
+    '.replace(/(\\/script>\\n)/g,"\\\\$1")'+
+    '.replace(/\\n([ ]*)/g,"\'+\\n$1\'")'+
+    '+"\'";'+
+    'return newStr;'+
+  '}'+
+'}'</script>
+
+
+  <script>
+
+    describe("test html2str",function(){
+      it(", test contain / \\ <\/script>",function(){
+        var text = testHTML.innerHTML;
+        var textOut = testOutHTML.innerHTML;
+        var funOut = html2str(text,",");
+        expect(funOut).toBe(textOut);
+      });
+      it("+ test contain / \\ <\/script>",function(){
+        var text = testHTML.innerHTML;
+        var textOut2 = testOutHTML2.innerHTML;
+        var funOut2 = html2str(text,"+");
+        expect(funOut2).toBe(textOut2);
+      });
+    });
+
+
+    describe("test str2html",function(){
+      it(", test contain / \\ <\/script>",function(){
+        var text = testOutHTML.innerHTML;
+        var textOut = testHTML.innerHTML;
+        var funOut = str2html(text,",");
+        expect(funOut).toBe(textOut);
+      });
+      it("+ test contain / \\ <\/script>",function(){
+        var text = testOutHTML2.innerHTML;
+        var textOut = testHTML.innerHTML;
+        var funOut = str2html(text,"+");
+        expect(funOut).toBe(textOut);
+      });
+    });
+
+
+
+  </script>
+</body>
+</html>
+
