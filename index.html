@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Html2str : 将html快速转换成str" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Html2str</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/fangk/html2str">View on GitHub</a>
+
+          <h1 id="project_title">Html2str</h1>
+          <h2 id="project_tagline">将html快速转换成str</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/fangk/html2str/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/fangk/html2str/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="html%E4%B8%8Estr%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2" class="anchor" href="#html%E4%B8%8Estr%E4%BA%92%E7%9B%B8%E8%BD%AC%E6%8D%A2"><span class="octicon octicon-link"></span></a>html与str互相转换。</h1>
+
+<h2>
+<a name="why" class="anchor" href="#why"><span class="octicon octicon-link"></span></a>why</h2>
+
+<p>在使用js模板的时候，我们需要将一段html模板以字符串的形式引入。</p>
+
+<ul>
+<li> 用ajax取。（代码最好看，浪费一个请求数！）</li>
+<li> 写在里。（代码相对好看。一次取dom的IO）</li>
+<li> 写在字符串里。（代码比较难看，执行效率最高）</li>
+</ul><h2>
+<a name="%E5%89%8D%E4%B8%A4%E7%A7%8D%E6%98%AF%E7%A1%AC%E4%BC%A4%E6%88%91%E6%83%B3%E8%AE%A9%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%8F%91%E6%8C%A5%E7%82%B9%E4%BD%9C%E7%94%A8%E8%AE%A9%E4%BB%A3%E7%A0%81%E7%A8%8D%E5%BE%AE%E5%A5%BD%E7%9C%8B%E4%B8%80%E7%82%B9" class="anchor" href="#%E5%89%8D%E4%B8%A4%E7%A7%8D%E6%98%AF%E7%A1%AC%E4%BC%A4%E6%88%91%E6%83%B3%E8%AE%A9%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%8F%91%E6%8C%A5%E7%82%B9%E4%BD%9C%E7%94%A8%E8%AE%A9%E4%BB%A3%E7%A0%81%E7%A8%8D%E5%BE%AE%E5%A5%BD%E7%9C%8B%E4%B8%80%E7%82%B9"><span class="octicon octicon-link"></span></a>前两种是硬伤，我想让第三种发挥点作用。让代码稍微好看一点。</h2>
+
+<p>写字符串里主流的方法分三种，分别是 \,数组，+
+<img src="https://i.alipayobjects.com/e/201402/23oCIIcCo9.jpg" alt=""></p>
+
+<p>反斜杠的模式我不怎么赞同，因为代码压缩的时候字符串是不压缩的！
+所以html2str就是针对数组模式和+号模式进行转换，
+在代码压缩的时候都会把它们合并成一行字符串。</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Html2str maintained by <a href="https://github.com/fangk">fangk</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
