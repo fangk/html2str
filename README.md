@@ -1,5 +1,7 @@
-# html与str互相转换。
-## why
+[html与str互相转换。](http://fangk.github.io/html2str/demo/index.htm)
+* demo写的比较随意，如果大家喜欢的话，fork it！
+
+## code for why？
 在使用js模板的时候，我们需要将一段html模板以字符串的形式引入。
 *  用ajax取。（代码最好看，浪费一个请求数！）
 *  写在<script type="text/html" id="testHTML"></script>里。（代码相对好看。一次取dom的IO）
@@ -12,8 +14,3 @@
 反斜杠的模式我不怎么赞同，因为代码压缩的时候字符串是不压缩的！
 所以html2str就是针对数组模式和+号模式进行转换，
 在代码压缩的时候都会把它们合并成一行字符串。
-
-
-
-
-
