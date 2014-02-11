@@ -7,7 +7,7 @@
 
 ## 前两种是硬伤，我想让第三种发挥点作用。让代码稍微好看一点。
 写字符串里主流的方法分三种，分别是 \,数组，+
-![](https://i.alipayobjects.com/e/201402/23oCIIcCo9.jpg)
+![](https://raw.github.com/fangk/html2str/master/src/img/show.jpg)
 
 反斜杠的模式我不怎么赞同，因为代码压缩的时候字符串是不压缩的！
 所以html2str就是针对数组模式和+号模式进行转换，
